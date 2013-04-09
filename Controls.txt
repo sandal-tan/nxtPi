@@ -1,0 +1,16 @@
+Controls for freeControl.py
+
+Forward - w
+Backward - a
+Left - s
+Right - d
+Camera Up - r
+Camera Down - e
+Spin (Not stable) - z
+Change Sensitivity (1-10) - 1-0
+Check Sensitivity - c
+Backup Space - b
+Light On - l
+Toggle Light (red/green/blue) - t
+Light Off - o
+Quit - q 

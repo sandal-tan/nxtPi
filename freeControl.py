@@ -25,6 +25,8 @@ blue = Type.COLORBLUE
 green = Type.COLORGREEN
 red = Type.COLORRED
 off = Type.COLORNONE
+curCol = off
+guideLight.set_light_color(curCol)
 curCol = green
 camDeg = 0
 
@@ -105,8 +107,8 @@ while ch != 'q':
         power = 65
         print "Sensitivity: 1"
     elif ch == '2':
-        sens = 90
-        sensTurn = 60
+        sens = 10
+        sensTurn = 10
         curSens = 2
         power = 100
         print "Sensitivity: 2"

@@ -28,6 +28,9 @@ script AppDelegate
         set networkNames to networks's valueForKey_("ssid")'s allObjects() as list
         if networkNames contains "PiBot"
         theLabel1's setStringValue_("PiBot Found, Connecting...")
+        do shell script ("networksetup -setairportnetwork en1 PiBot aaaaa11111")
+        theLabel1's setStringValue_("Connected")
+        set title of connectButton to "Disconnect"
         else
         theLabel1's setStringValue_("PiBot Not Found")
         end if

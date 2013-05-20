@@ -9,28 +9,30 @@
 script AppDelegate
 	property parent : class "NSObject"
     property lightButton : missing value
+    property connectButton : missing value
     property theLabel1 : missing value
     property lightLabel : missing value
 	property CWInterface : class "CWInterface"
     
 	on applicationWillFinishLaunching_(aNotification)
 		set title of lightButton to "On"
+        set title of connectButton to "Connect"
         theLabel1's setStringValue_("Not Connected")
         lightLabel's setStringValue_("Off")
 	end applicationWillFinishLaunching_
     
     on connectToPiBot_(aNotification)
-        theLabel1's setStringValue_("Looking for PiBot...")
+        set title of connectButton to "Connecting..."
         set currentInterface to CWInterface's interface()
         set networks to currentInterface's scanForNetworksWithName_error_(missing value, missing value)
         set networkNames to networks's valueForKey_("ssid")'s allObjects() as list
-        log networkNames
         if networkNames contains "PiBot"
-        say "Network Found"
-        theLabel1's setStringValue_("Connecting")
+        theLabel1's setStringValue_("PiBot Found, Connecting...")
+        do shell script ("networksetup -setairportnetwork en1 PiBot aaaaa11111")
+        theLabel1's setStringValue_("Connected")
+        set title of connectButton to "Disconnect"
         else
-        say "No NetWork Found"
-        theLabel1's setStringValue_("Not Connected")
+        theLabel1's setStringValue_("PiBot Not Found")
         end if
     end connectToPiBot_
         
